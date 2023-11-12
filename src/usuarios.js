@@ -65,7 +65,6 @@ export class Usuarios extends LitElement {
         const cell1 = row.insertCell(0);
         const cell2 = row.insertCell(1);
         const cell3 = row.insertCell(2);
-
         cell1.textContent = campaña.nombre;
         cell2.textContent = campaña.equipo;
         cell3.textContent = campaña.trabajadores;
