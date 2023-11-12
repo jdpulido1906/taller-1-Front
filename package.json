@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@vaadin/router": "^1.7.5",
+    "lit-element": "^3.3.3",
+    "sweetalert2": "^11.9.0"
+  }
+}
