@@ -15,8 +15,7 @@ export class Usuarios extends LitElement {
 
   constructor() {
     super();
-    this.usuariosRegistrados =
-      JSON.parse(localStorage.getItem("usuarios")) || [];
+    this.usuariosRegistrados = JSON.parse(localStorage.getItem("usuarios")) || [];
     this.campañas = JSON.parse(localStorage.getItem("campañas")) || [];
     this.usuarioEncontrado = null;
     this.isModalOpen = false;
@@ -326,20 +325,20 @@ export class Usuarios extends LitElement {
                           ></cmp-nuevo-usuario>
 
                          ${this.usuarioEncontrado
-        ? html`
-    <p>Nombre: ${this.usuarioEncontrado.nombre}</p>
-    <p>Apellido: ${this.usuarioEncontrado.apellido}</p>
-    <p>Correo: ${this.usuarioEncontrado.email}</p>
-    <p>Campaña: ${this.usuarioEncontrado.campaña}</p> <!-- Corrected from .campaign to .campaña -->
-    <button
-    @click="${this.llamarUsuario}" 
-      class="mt-2 text-center"
-      style="width: 5rem; border-radius: 5px; border: rgb(52, 58, 64); background-color: rgb(52, 58, 64); color: white;"
-    >
-      Llamar
-    </button>
-  `
-        : ""
+                            ? html`
+                        <p>Nombre: ${this.usuarioEncontrado.nombre}</p>
+                        <p>Apellido: ${this.usuarioEncontrado.apellido}</p>
+                        <p>Correo: ${this.usuarioEncontrado.email}</p>
+                        <p>Campaña: ${this.usuarioEncontrado.campaña}</p> <!-- Corrected from .campaign to .campaña -->
+                        <button
+                        @click="${this.llamarUsuario}" 
+                          class="mt-2 text-center"
+                          style="width: 5rem; border-radius: 5px; border: rgb(52, 58, 64); background-color: rgb(52, 58, 64); color: white;"
+                        >
+                          Llamar
+                        </button>
+                      `
+                            : ""
       }
                         </div>
                       </div>
@@ -369,8 +368,7 @@ export class Usuarios extends LitElement {
                         >
                           <h2>Campañas Disponibles</h2>
                           <ul>
-                            ${this.campañas.map(
-        (campaña) => html`<li>${campaña}</li>`
+                         ${this.campañas.map( (campaña) => html`<li>${campaña}</li>`
       )}
                           </ul>
                           <button
@@ -468,37 +466,36 @@ export class Usuarios extends LitElement {
                         </tr>
                       </thead>
                       <tbody>
-  ${this.usuariosRegistrados
-        ? this.usuariosRegistrados.map(
-          (user, index) => html`
-          <tr>
-            <td>${user.nombre}</td>
-            <td>${user.numero}</td>
-            <td>${user.campaña}</td> <!-- Add this line for campaign -->
-            <td>
-              ${user.activo
-              ? html`
-                    <button
-                      @click="${() => this.desactivarUsuario(user)}"
-                    >
-                      Desactivar
-                    </button>
-                  `
-              : html`
-                    <button
-                      @click="${() => this.activarUsuario(user)}"
-                    >
-                      Activar
-                    </button>
-                  `}
-            </td>
-          </tr>
-        `
-        )
-        : html``
-      }
-</tbody>
-
+                        ${this.usuariosRegistrados
+                              ? this.usuariosRegistrados.map(
+                                (user, index) => html`
+                                <tr>
+                                  <td>${user.nombre}</td>
+                                  <td>${user.numero}</td>
+                                  <td>${user.campaña}</td> <!-- Add this line for campaign -->
+                                  <td>
+                                    ${user.activo
+                                    ? html`
+                                          <button
+                                            @click="${() => this.desactivarUsuario(user)}"
+                                          >
+                                            Desactivar
+                                          </button>
+                                        `
+                                    : html`
+                                          <button
+                                            @click="${() => this.activarUsuario(user)}"
+                                          >
+                                            Activar
+                                          </button>
+                                        `}
+                                  </td>
+                                </tr>
+                              `
+                              )
+                              : html``
+                            }
+                      </tbody>
                     </table>
                   </div>
                   
